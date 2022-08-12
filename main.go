@@ -27,7 +27,7 @@ func dbConn() (db *sql.DB) {
 	return db
 }
 
-var tmpl = template.Must(template.ParseGlob("form/*"))
+var tmpl = template.Must(template.ParseGlob("*"))
 
 func Index(w http.ResponseWriter, r *http.Request) {
 	db := dbConn()
