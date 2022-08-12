@@ -1,0 +1,31 @@
+{{ define "Index" }}
+  {{ template "Header" }}
+  <br>
+    {{ template "Menu"  }}
+    <h2> Created Tasks </h2>
+     <div class="table-responsive">
+        <table>
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Task</th>
+        <th scope="col">Asignee</th>
+        <th scope="col">Action</th>
+      </tr>
+       </thead>
+       <tbody id="mytable">
+    {{ range . }}
+      <tr>
+        <td>{{ .Id }}</td>
+        <td> {{ .Name }} </td>
+        <td>{{ .City }} </td> 
+        <td><a href="/show?id={{ .Id }}">View</a>
+        <a href="/edit?id={{ .Id }}">Edit</a>
+        <a href="/delete?id={{ .Id }}">Delete</a><td>
+      </tr>
+    {{ end }}
+       </tbody>
+    </table>
+    </div>
+  {{ template "Footer" }}
+{{ end }}
